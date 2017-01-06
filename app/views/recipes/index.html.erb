@@ -1,0 +1,18 @@
+
+<h1>Search for &quot<%= @search_term %>&quot Recipes</h1>
+
+<table border="1">
+  <tr>
+  	<th>Image</th>
+  	<th>Title</th>
+  	<th>Social Rank</th>
+  </tr>
+  <% @recipes.each do |recipe| %>
+    <tr class=<%= cycle('even', 'odd') %>>
+      <td><a href=<%= recipe["source_url"] %>>
+        <%= image_tag(recipe["image_url"], height: '100', width: '100') %></a></td>
+      <td><a href=<%= recipe["source_url"] %>><%= sanitize recipe["title"] %></a></td>
+      <td><%= recipe["social_rank"] %></td>
+    </tr>
+  <% end %>
+</table>
